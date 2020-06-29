@@ -33,7 +33,7 @@
 
 <section class="main-section">
     <div class="tab" th:each="feed : ${news}">
-        <a class="tab-link-wrapper" th:href="@{'/detail/' + ${feed.id}}">
+        <a class="tab-link-wrapper" th:href="@{'/news/detail/' + ${feed.id}}">
             <img class="tab-image" th:src="${feed.imgurl}" alt="404">
               <div class="tab-content">
                   <p class="tab-title" th:text="${feed.head}"></p>
