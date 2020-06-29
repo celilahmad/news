@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymleaf.org"
-        lang="en">
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Tinder: Main Page</title>
@@ -30,28 +30,17 @@
         </div>
     </div>
 </header>
-
-<section class="main-section">
-    <div class="tab" th:each="feed : ${news}">
-        <a class="tab-link-wrapper" th:href="@{'/detail/' + ${feed.id}}">
-            <img class="tab-image" th:src="${feed.imgurl}" alt="404">
-              <div class="tab-content">
-                  <p class="tab-title" th:text="${feed.head}"></p>
-                  <p class="tab-description" th:text="${feed.body}"></p>
-                  <p class="tab-tags" th:text="${feed.source}"></p>
-                  <p class="tab-date" th:text="${feed.date}"></p>
-              </div>
-        </a>
-        <div>
-            <img class="vector" src="img/Vector.png">
-        </div>
-        <a class="vector-text">Share</a>
-        <div class="tab-options">
-            <img src="img/Vector%20(1).png">
-        </div>
+<section class="tab-section">
+    <img class="main-image" th:src="${detail.imgurl}">
+    <img class="background-drawing" src="img/Group.png">
+    <div class="text-box">
+        <p class="text-box-title" th:text="${detail.head}"></p>
+        <p class="main-gap" th:text="${detail.body}"></p>
+        <p class="main-gap" th:text="${detail.detail}"></p>
     </div>
-
 </section>
+
+
 
 </body>
 </html>

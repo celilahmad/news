@@ -19,5 +19,9 @@ public class NewsService {
         return feedRepo.findAll();
     }
 
+    public News oneNews(int id){
+        return feedRepo.findById(id).get();
+    }
+
 
 }
