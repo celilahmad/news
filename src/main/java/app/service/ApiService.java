@@ -2,6 +2,7 @@ package app.service;
 
 
 import app.entity.Tech;
+import app.repo.TechRepo;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -10,12 +11,16 @@ import org.springframework.web.client.RestTemplate;
 public class ApiService {
 
 
-    //private final TechRepo repo;
+    private final TechRepo repo;
     //private final ArticlesRepo arepo;
 
     private RestTemplate rest = new RestTemplate();
 
     String url ="http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=e2dd807810914248a41703de4015754f";
+
+    public ApiService(TechRepo repo) {
+        this.repo = repo;
+    }
 
 
     public HttpHeaders headers(){
@@ -33,7 +38,7 @@ public class ApiService {
         //ResponseEntity<String> exchange = rest.exchange(url, HttpMethod.GET, obj, String.class);
 
         Tech forObject = rest.getForObject(url, Tech.class);
-        //repo.save(forObject);
+        repo.save(forObject);
         return forObject;
 
         //return exchange.getBody();

@@ -6,20 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Entity
+@Embeddable
 public class Articles {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
 
     private String author;
@@ -27,4 +25,12 @@ public class Articles {
     private String title;
 
     private String description;
+
+    private String url;
+
+    private String urlToImage;
+
+    private String publishedAt;
+
+    private String content;
 }
