@@ -20,6 +20,7 @@ public class ApiService {
 
     public ApiService(TechRepo repo) {
         this.repo = repo;
+
     }
 
 
@@ -38,9 +39,14 @@ public class ApiService {
         //ResponseEntity<String> exchange = rest.exchange(url, HttpMethod.GET, obj, String.class);
 
         Tech forObject = rest.getForObject(url, Tech.class);
+        repo.deleteAll();
         repo.save(forObject);
         return forObject;
 
         //return exchange.getBody();
     }
+
+    /*public List<Articles> allNews(){
+        return arepo.findAll();
+    }*/
 }
