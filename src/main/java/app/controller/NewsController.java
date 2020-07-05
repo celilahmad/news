@@ -30,11 +30,11 @@ public class NewsController {
 
     }
 
-    @RequestMapping("/detail/{id}")
+    /*@RequestMapping("/detail/{id}")
     public String newsDetail(@ModelAttribute("id") int id, Model model){
         News news = newsService.oneNews(id);
         model.addAttribute("detail", news);
         return "news-detail";
 
-    }
+    }*/
 }

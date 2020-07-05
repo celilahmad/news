@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
         lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +24,7 @@
             <img class="main-header-user-icon" src="./img/user-icon-with-background.svg" alt="User Icon">
             <div class="hidden-accordion-wrapper">
                 <ul class="hidden-accordion">
-                    <li class="hidden-accordion-item"><img src="./img/favourite-icon.svg" alt="Favourite Icon"><a href="./disable-news.html" class="hidden-accordion-item-link">My News</a></li>
+                    <li class="hidden-accordion-item"><img src="./img/favourite-icon.svg" alt="Favourite Icon"><a th:href="@{/api/mynews/}" class="hidden-accordion-item-link">My News</a></li>
                     <li class="hidden-accordion-item"><img src="./img/log-out-icon.svg" alt="Log Out Icon"><a href="./index.html" class="hidden-accordion-item-link">Log Out</a></li>
                 </ul>
             </div>
@@ -33,7 +34,7 @@
 
 <section class="main-section">
     <div class="tab" th:each="feed : ${news}">
-        <a class="tab-link-wrapper" th:href="@{'/news/detail/' + ${feed.url}}">
+        <a class="tab-link-wrapper" th:href="@{'/api/detail/' + ${feed.id}}">
             <img class="tab-image" th:src="${feed.urlToImage}" alt="404">
               <div class="tab-content">
                   <p class="tab-title" th:text="${feed.title}"></p>

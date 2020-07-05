@@ -51,6 +51,14 @@ public class ApiService {
     }
 
     public List<Articles> allNews(){
+        return arepo.findAll();
+    }
+
+    public Articles oneArticle(int id){
+        return arepo.findById(id).get();
+    }
+
+    public List<Articles> limitedNews() {
         return arepo.findAll().stream().limit(5).collect(Collectors.toList());
     }
 }
