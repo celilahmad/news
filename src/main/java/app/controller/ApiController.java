@@ -13,8 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
-//@Controller
+//@RestController
+@Controller
 @RequestMapping("/api")
 public class ApiController {
 
@@ -24,17 +24,17 @@ public class ApiController {
         this.apiService = apiService;
     }
 
-    @GetMapping("/news")
+    /*@GetMapping("/news")
     public Tech news(){
         return apiService.getNews();
-    }
+    }*/
 
-  /*  @GetMapping("/allnews")
+    @GetMapping("/allnews")
     public String news(Model model) {
-        List<Tech> articles = apiService.allNews();
+        List<Articles> articles = apiService.allNews();
         model.addAttribute("news", articles);
         return "main-page";
-    }*/
+    }
 
     /*@GetMapping("/allnews")
     public ModelAndView allNews() {

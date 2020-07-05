@@ -12,11 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Embeddable
+@Entity
+@Table(name = "articles")
+//@Embeddable
 public class Articles {
 
-
-    @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -33,4 +35,10 @@ public class Articles {
     private String publishedAt;
 
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "tech_id"/*, referencedColumnName = "id", insertable = false, updatable = false*/)
+    private Tech tech;
+
+
 }
