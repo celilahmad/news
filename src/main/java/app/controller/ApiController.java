@@ -23,6 +23,7 @@ public class ApiController {
     private final ApiService apiService;
 
     public ApiController(ApiService apiService) {
+        //apiService.getNews();
         this.apiService = apiService;
     }
 

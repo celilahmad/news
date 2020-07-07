@@ -4,12 +4,16 @@ import app.entity.Articles;
 import app.entity.Tech;
 import app.repo.ArticlesRepo;
 import app.repo.TechRepo;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class ApiService {
@@ -36,16 +40,18 @@ public class ApiService {
         }};
     }
 
-    public Tech getNews() {
+    @Bean
+    public void getNews() {
         //HttpEntity<Object> obj = new HttpEntity<>(headers());
         //ResponseEntity<String> exchange = rest.exchange(url, HttpMethod.GET, obj, String.class);
 
         Tech forObject = rest.getForObject(url, Tech.class);
-        //List<Articles> collect = forObject.getArticles().stream().filter(x -> !repo.findAll().contains(x.getTitle())).collect(Collectors.toList());
-        //repo.deleteAll();
-        forObject.getArticles().forEach(x-> arepo.save(x));
+        forObject.getArticles().stream()
+                .filter(x -> !arepo.getArticlesByTitle(x.getTitle()).isPresent())
+                .forEach(x -> arepo.save(x));
+
         repo.save(forObject);
-        return forObject;
+        //return forObject;
 
         //return exchange.getBody();
     }
@@ -59,6 +65,6 @@ public class ApiService {
     }
 
     public List<Articles> limitedNews() {
-        return arepo.findAll().stream().limit(5).collect(Collectors.toList());
+       return arepo.findAll().stream().limit(5).collect(Collectors.toList());
     }
 }
