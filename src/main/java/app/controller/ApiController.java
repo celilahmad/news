@@ -7,10 +7,7 @@ import app.entity.Tech;
 import app.service.ApiService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -44,6 +41,14 @@ public class ApiController {
         Articles news = apiService.oneArticle(id);
         model.addAttribute("detail", news);
         return "news-detail";
+
+    }
+
+    @RequestMapping("/search-detail/")
+    public String searchDetail(@ModelAttribute("search") String search, Model model){
+        List<Articles> searchedNews = apiService.searchedNews(search);
+        model.addAttribute("news", searchedNews);
+        return "search";
 
     }
 

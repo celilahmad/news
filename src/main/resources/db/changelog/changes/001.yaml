@@ -1,0 +1,65 @@
+databaseChangeLog:
+- changeSet:
+    id: 1594308415450-1
+    author: jalil (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: idnew_table
+            type: INT
+        tableName: new_table
+- changeSet:
+    id: 1594308415450-2
+    author: jalil (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: INT
+        tableName: test
+- changeSet:
+    id: 1594308415450-3
+    author: jalil (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: articles
+        constraintName: FKm8fh5uxhdi9tewyi22s7irnrl
+- changeSet:
+    id: 1594308415450-4
+    author: jalil (generated)
+    changes:
+    - dropTable:
+        tableName: articles
+- changeSet:
+    id: 1594308415450-5
+    author: jalil (generated)
+    changes:
+    - dropTable:
+        tableName: feed
+- changeSet:
+    id: 1594308415450-6
+    author: jalil (generated)
+    changes:
+    - dropTable:
+        tableName: tech
+- changeSet:
+    id: 1594308415450-7
+    author: jalil (generated)
+    changes:
+    - dropTable:
+        tableName: tech_articles
+- changeSet:
+    id: 1594308415450-8
+    author: jalil (generated)
+    changes:
+    - dropTable:
+        tableName: user
+

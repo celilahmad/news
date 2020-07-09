@@ -1,0 +1,19 @@
+
+#pruduction db
+url: jdbc:mysql://localhost:3306/news
+username: root
+password: hbstudent
+
+#development db
+referenceUrl: jdbc:mysql://localhost:3306/devops
+referenceUsername: root
+referencePassword: hbstudent
+
+#for diff/update
+changeLogFile: src/main/resources/db/changelog/master.yaml
+
+#for initial changelog creation
+outputChangeLogFile: src/main/resources/db/changelog/step0.yaml
+
+#for diff operation
+diffChangeLogFile: src/main/resources/db/changelog/changes/diff.yaml

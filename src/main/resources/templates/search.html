@@ -12,9 +12,9 @@
 <header class="main-header">
     <a href="main-page.html" class="main-header-logo"><img src="./img/Group%2012.png" alt="IBA Tech Academy"></a>
     <div class="main-header-wrapper">
-        <form action="#" th:action="@{/api/search-detail/}" th:object="${search}">
+        <form action="#" th:action="@{api/detail/}" th:object="${search}">
         <label class="main-header-search-wrapper">
-            <input type="search" class="main-header-search" placeholder="Search">
+            <input type="search" class="main-header-search" placeholder="Search" name="search">
             <img src="./img/search-icon.svg" alt="Search Icon">
         </label>
         </form>

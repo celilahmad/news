@@ -4,17 +4,18 @@ import app.entity.Articles;
 import app.entity.Tech;
 import app.repo.ArticlesRepo;
 import app.repo.TechRepo;
+import lombok.extern.log4j.Log4j2;
+import org.apache.logging.log4j.util.PropertySource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Log4j2
 @Service
 public class ApiService {
 
@@ -65,6 +66,20 @@ public class ApiService {
     }
 
     public List<Articles> limitedNews() {
-       return arepo.findAll().stream().limit(5).collect(Collectors.toList());
+        List<Articles> list = new ArrayList<>(arepo.findAll());
+        Collections.reverse(list);
+        return list.stream().limit(5).collect(Collectors.toList());
     }
+
+    public List<Articles> searchedNews(String title){
+        //List<Articles> articles = arepo.getAllByTitle(title).orElse(null);
+        List<Articles> collect = arepo.findAll().stream().filter(x -> x.getTitle().contains(title)).collect(Collectors.toList());
+        log.info(collect.size());
+        return collect;
+        /*log.info(articles.get(0));
+        return articles;*/
+
+        //if(arepo.getAllByTitleAndDescriptionAndContent().contains(title)) return
+    }
+
 }
