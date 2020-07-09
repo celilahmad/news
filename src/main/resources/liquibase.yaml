@@ -1,11 +1,11 @@
 
 #pruduction db
-url: jdbc:mysql://localhost:3306/news
+url: jdbc:mysql://localhost:3306/devops
 username: root
 password: hbstudent
 
 #development db
-referenceUrl: jdbc:mysql://localhost:3306/devops
+referenceUrl: jdbc:mysql://localhost:3306/news
 referenceUsername: root
 referencePassword: hbstudent
 
