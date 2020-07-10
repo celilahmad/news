@@ -73,9 +73,13 @@ public class ApiService {
 
     public List<Articles> searchedNews(String title){
         //List<Articles> articles = arepo.getAllByTitle(title).orElse(null);
-        List<Articles> collect = arepo.findAll().stream().filter(x -> x.getTitle().contains(title)).collect(Collectors.toList());
-        log.info(collect.size());
-        return collect;
+        //List<Articles> collect = arepo.findAll().stream().filter(x -> x.getTitle().contains(title)).collect(Collectors.toList());
+        return arepo
+                .findAll().stream()
+                .filter(x -> x.getTitle().toLowerCase().contains(title.toLowerCase()))
+                .collect(Collectors.toList());
+        //log.info(collect.size());
+        //return collect;
         /*log.info(articles.get(0));
         return articles;*/
 

@@ -10,10 +10,12 @@
 <header class="main-header">
     <a href="./main-page.html" class="main-header-logo"><img src="./img/Group%2012.png" alt="IBA Tech Academy"></a>
     <div class="main-header-wrapper">
-        <label class="main-header-search-wrapper">
-            <input type="search" class="main-header-search" placeholder="Search">
-            <img src="./img/search-icon.svg" alt="Search Icon">
-        </label>
+        <form action="#" th:action="@{/api/search-detail/}" th:object="${search}">
+            <label class="main-header-search-wrapper">
+                <input type="search" class="main-header-search" placeholder="Search" name="search">
+                <img src="./img/search-icon.svg" alt="Search Icon">
+            </label>
+        </form>
         <div class="main-header-profile-wrapper">
             <div class="main-header-profile-credentials">
                 <span class="main-header-profile-welcome">Welcome,</span>
@@ -39,12 +41,15 @@
     </div>
     <div class="news-tabs">
         <div class="single-tab" th:each="feed : ${all}">
+            <a class="tab-link-wrapper" th:href="@{'/api/detail/' + ${feed.id}}">
             <img class="tab-picture" th:src="${feed.urlToImage}">
             <p class="tab-title" th:text="${feed.title}"></p>
             <p class="tab-description" th:text="${feed.description}"></p>
             <div class="button">
                 <img class="icon" src="img/vec.png">
                 <p class="button-text" th:text="${feed.author}"></p>
+            </div>
+            </a>
             </div>
         </div>
 

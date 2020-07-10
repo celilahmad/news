@@ -1,6 +1,6 @@
 databaseChangeLog:
 - changeSet:
-    id: 1594311974149-1
+    id: 1594374441277-1
     author: jalil (generated)
     changes:
     - createTable:
@@ -38,12 +38,13 @@ databaseChangeLog:
             type: INT
         tableName: articles
 - changeSet:
-    id: 1594311974149-2
+    id: 1594374441277-2
     author: jalil (generated)
     changes:
     - createTable:
         columns:
         - column:
+            autoIncrement: true
             constraints:
               nullable: false
               primaryKey: true
@@ -69,7 +70,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: feed
 - changeSet:
-    id: 1594311974149-3
+    id: 1594374441277-3
     author: jalil (generated)
     changes:
     - createTable:
@@ -83,7 +84,7 @@ databaseChangeLog:
             type: INT
         tableName: tech
 - changeSet:
-    id: 1594311974149-4
+    id: 1594374441277-4
     author: jalil (generated)
     changes:
     - createTable:
@@ -123,12 +124,13 @@ databaseChangeLog:
             type: TEXT
         tableName: tech_articles
 - changeSet:
-    id: 1594311974149-5
+    id: 1594374441277-5
     author: jalil (generated)
     changes:
     - createTable:
         columns:
         - column:
+            autoIncrement: true
             constraints:
               nullable: false
               primaryKey: true
@@ -145,7 +147,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: user
 - changeSet:
-    id: 1594311974149-6
+    id: 1594374441277-6
     author: jalil (generated)
     changes:
     - createIndex:
@@ -155,7 +157,7 @@ databaseChangeLog:
         indexName: FKanym5mh7bi8si4l0nknd4um4v
         tableName: tech_articles
 - changeSet:
-    id: 1594311974149-7
+    id: 1594374441277-7
     author: jalil (generated)
     changes:
     - createIndex:
@@ -165,7 +167,7 @@ databaseChangeLog:
         indexName: FKm8fh5uxhdi9tewyi22s7irnrl
         tableName: articles
 - changeSet:
-    id: 1594311974149-8
+    id: 1594374441277-8
     author: jalil (generated)
     changes:
     - addForeignKeyConstraint:
